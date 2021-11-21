@@ -1,15 +1,10 @@
 // Instancio express
 const express = require('express');
 
-// Conexion a mongoose (MongoDb)
-const mongoose = require('mongoose');
-
-// Requiero dotenv para configurar variables de entorno 
-require('dotenv').config();
-
 // Importo los models
 require('./models/SensorModel');
 require('./models/UsuarioModel');
+require('./middleware/database')
 
 // Importo rutas
 const authRoutes = require('./routes/auth');
@@ -21,13 +16,6 @@ const app = express();
 
 // Middleware para reconocer el objeto de la petición entrante como JSON
 app.use(express.json({ extended: false }));
-
-// Uri de conexión para base de datos en MongoDB
-const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.804dd.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
-
-mongoose.connect(uri, { useNewUrlparser: true, useUnifiedTopology: true })
-    .then(() => console.log('Base de datos conectada'))
-    .catch(e => console.log(e));
 
 // Defino el puerto que va a escuchar el servidor.
 const port = process.env.PORT || 3000;
