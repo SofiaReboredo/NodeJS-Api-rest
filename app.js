@@ -3,8 +3,10 @@ const express = require('express');
 
 // Importo los models
 require('./models/SensorModel');
+require('./models/ActuadorModel');
 require('./models/UsuarioModel');
 require('./middleware/database')
+/////require('./middleware/dbConection');
 
 // Importo rutas
 const authRoutes = require('./routes/auth');
@@ -22,11 +24,12 @@ const port = process.env.PORT || 3000;
 
 // Ante una petición del cliente en la url raíz, por medio del get le envío una respuesta.
 app.get('/', (req, res) => {
-    res.send('Mi respuesta desde express')
+    res.send('Datos recibidos OK')
 })
 
 // Defino las rutas de la API
 app.use('/api/sensores', require('./routes/sensor'));
+app.use('/api/actuadores', require('./routes/actuador'));
 app.use('/api/usuario', authRoutes);
 app.use('/api/admin', verificarToken, admin);
 
