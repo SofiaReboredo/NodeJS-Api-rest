@@ -1,4 +1,4 @@
-// requiero jsonWebToken para validar el token de acceso
+ // requiero jsonWebToken para validar el token de acceso
 const jwt = require('jsonwebtoken');
 
 // Valido que el token sea válido
