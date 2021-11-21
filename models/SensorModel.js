@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const sensorSchema = new Schema({
     nombre: String,
     descripcion: String,
+    estado: Boolean,
 })
 
 // Crea modelo sensor
