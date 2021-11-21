@@ -9,5 +9,5 @@ const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.
 //const uri = `mongodb+srv://admindb:tincho01@mongodbtest.r5i8f.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(uri, { useNewUrlparser: true, useUnifiedTopology: true })
-    .then(() => console.log('Base de datos OK'))
+    .then(() => console.log('Base de datos conectada'))
     .catch(e => console.log(e));
