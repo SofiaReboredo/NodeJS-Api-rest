@@ -10,7 +10,7 @@ const verificarToken = (req, res, next) => {
         req.usuario = verificar
         next()
     } catch (error) {
-        res.status(400).json({ error: 'Token no es válido' })
+        res.status(400).json({ error: 'Token no es válido', mensaje: 'El token recibido no pertenece a un usuario'})
     }
 }
 

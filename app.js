@@ -6,7 +6,6 @@ require('./models/SensorModel');
 require('./models/ActuadorModel');
 require('./models/UsuarioModel');
 require('./middleware/database')
-/////require('./middleware/dbConection');
 
 // Importo rutas
 const authRoutes = require('./routes/auth');
@@ -24,7 +23,7 @@ const port = process.env.PORT || 3000;
 
 // Ante una petición del cliente en la url raíz, por medio del get le envío una respuesta.
 app.get('/', (req, res) => {
-    res.send('Datos recibidos OK')
+    res.send('Bienvenido a la aplicación')
 })
 
 // Defino las rutas de la API

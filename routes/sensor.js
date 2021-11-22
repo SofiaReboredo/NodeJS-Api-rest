@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     const { params: { id } } = req;
     Sensor.findById(id)
         .then(data => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Sensor with id "${id} not found"` })
+            if (!data) res.status(404).json({ error: 'No se encontró', message: `sensor con id "${id} no fue encontrado"` })
             res.json(data);
         })
         .catch(err => res.status(500).json(err))
@@ -40,8 +40,8 @@ router.patch('/:id', (req, res) => {
 
     Sensor.findByIdAndUpdate(id, { ...body })
         .then(data => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Sensor with id "${id} not found"` });
-            res.status(201).json({ status: 'Updated', message: `Sensor with id "${id} updated"` });
+            if (!data) res.status(404).json({ error: 'No se encontró', message: `sensor con id "${id} no fue encontrado"` });
+            res.status(201).json({ status: 'Actualizado', message: `Sensor con id "${id} actualizado"` });
         })
         .catch(err => res.status(500).json(err));
 });
@@ -52,8 +52,8 @@ router.delete('/:id', (req, res) => {
 
     Sensor.findByIdAndDelete(id)
         .then((data) => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Sensor with id "${id} not found"` })
-            res.json({ status: `${id} deleted` })
+            if (!data) res.status(404).json({ error: 'No se encontró', message: `sensor con id "${id} no fue encontrado"` })
+            res.json({ status: `${id} eliminado` })
         })
         .catch(error => res.status(500).json(error));
 });

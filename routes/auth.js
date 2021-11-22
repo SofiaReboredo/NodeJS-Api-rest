@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
     }, process.env.TOKEN_SECRET)
 
     res.header('auth-token', token).json({
-        error: null,
+        error: false,
         mensaje: 'Bienvenido a la API',
         data: { token }
     })
