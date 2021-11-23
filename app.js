@@ -2,10 +2,11 @@
 const express = require('express');
 
 // Importo los models
+require('./middleware/database')
 require('./models/SensorModel');
 require('./models/ActuadorModel');
 require('./models/UsuarioModel');
-require('./middleware/database')
+require('./models/TemperaturaModel');
 
 // Importo rutas
 const authRoutes = require('./routes/auth');
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 // Defino las rutas de la API
 app.use('/api/sensores', require('./routes/sensor'));
 app.use('/api/actuadores', require('./routes/actuador'));
+app.use('/api/temperatura', require('./routes/temperatura'));
 app.use('/api/usuario', authRoutes);
 app.use('/api/admin', verificarToken, admin);
 
