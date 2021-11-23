@@ -41,7 +41,7 @@ router.patch('/:id', (req, res) => {
     Temperatura.findByIdAndUpdate(id, { ...body })
         .then(data => {
             if (!data) res.status(404).json({ error: 'No se encontró', message: `temperatura con id "${id} no fue encontrado"` });
-            res.status(201).json({ status: 'Actualizado', message: `Temperatura con id "${id} actualizado"` });
+            res.status(201).json({ status: 'Actualizado', message: `Temperatura con id "${id} actualizada"` });
         })
         .catch(err => res.status(500).json(err));
 });
