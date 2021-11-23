@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     const { params: { id } } = req;
     Actuador.findById(id)
         .then(data => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Actuador with id "${id} not found"` })
+            if (!data) res.status(404).json({ error: 'No encontrado', message: `Actuador con id "${id} no encontrado"` })
             res.json(data);
         })
         .catch(err => res.status(500).json(err))
@@ -40,8 +40,8 @@ router.patch('/:id', (req, res) => {
 
     Actuador.findByIdAndUpdate(id, { ...body })
         .then(data => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Actuador with id "${id} not found"` });
-            res.status(201).json({ status: 'Updated', message: `Actuador with id "${id} updated"` });
+            if (!data) res.status(404).json({ error: 'No encontrado', message: `Actuador con id "${id} no encontrado"` });
+            res.status(201).json({ status: 'Actualizado', message: `Actuador con id "${id} actualizado"` });
         })
         .catch(err => res.status(500).json(err));
 });
@@ -52,8 +52,8 @@ router.delete('/:id', (req, res) => {
 
     Actuador.findByIdAndDelete(id)
         .then((data) => {
-            if (!data) res.status(404).json({ error: 'Not found', message: `Actuador with id "${id} not found"` })
-            res.json({ status: `${id} deleted` })
+            if (!data) res.status(404).json({ error: 'No encontrado', message: `Actuador con id "${id} no encontrado"` })
+            res.json({ status: `${id} eliminado` })
         })
         .catch(error => res.status(500).json(error));
 });

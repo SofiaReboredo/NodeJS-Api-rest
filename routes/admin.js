@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
     res.json({
         error: null,
         data: {
-            titulo: 'Mi ruta protegida',
+            titulo: 'Ruta de administrador',
             usuario: req.usuario
         }
     })
